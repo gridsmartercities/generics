@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Link Button Component 1`] = `
+<a
+  class="sc-bdVaJa etjUrz"
+  href="/hello"
+>
+  Hello
+</a>
+`;
+
+exports[`Regular Button Component 1`] = `
+<button
+  class="sc-bwzfXH jjWYyR"
+  type="submit"
+>
+  Hello
+</button>
+`;
