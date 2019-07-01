@@ -1,19 +1,18 @@
-import React, { useRef } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { formatFormData } from "./helper";
 import Button from "../button";
 
 const Form = ({ onSubmit, buttonValue = "submit", children }) => {
-  const form = useRef(0);
-
   const submit = e => {
     e.preventDefault();
-    const formatedData = formatFormData([...form.current]);
+    const formNode = [...e.target.elements];
+    const formatedData = formatFormData(formNode);
     onSubmit(formatedData);
   };
 
   return (
-    <form ref={form} onSubmit={submit}>
+    <form onSubmit={submit}>
       {children}
       <Button>{buttonValue}</Button>
     </form>
