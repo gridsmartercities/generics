@@ -3,7 +3,12 @@ import PropTypes from "prop-types";
 import { formatFormData } from "./helper";
 import Button from "../button";
 
-const Form = ({ onSubmit, buttonValue = "submit", children }) => {
+const Form = ({
+  onSubmit,
+  buttonValue = "submit",
+  children,
+  messages = []
+}) => {
   const submit = e => {
     e.preventDefault();
     const formNode = [...e.target.elements];
@@ -14,6 +19,11 @@ const Form = ({ onSubmit, buttonValue = "submit", children }) => {
   return (
     <form onSubmit={submit}>
       {children}
+      <div>
+        {messages.map(({ type, body }) => (
+          <span className={type}>{body}</span>
+        ))}
+      </div>
       <Button>{buttonValue}</Button>
     </form>
   );

@@ -2,24 +2,35 @@
 
 exports[`Form Component 1`] = `
 <form>
-  <label
-    for="test1"
-  >
-    test 1
-  </label>
-  <input
-    id="test1"
-    name="test1"
-  />
-  <label
-    for="test2"
-  >
-    test 2
-  </label>
-  <input
-    id="test2"
-    name="test2"
-  />
+  <div>
+    <label
+      class="sc-htpNat gXggjD"
+      for="test1"
+    >
+      test 1
+    </label>
+    <input
+      class="sc-bxivhb clCpTH"
+      id="test1"
+      label="test 1"
+      name="test1"
+    />
+  </div>
+  <div>
+    <label
+      class="sc-htpNat gXggjD"
+      for="test2"
+    >
+      test 2
+    </label>
+    <input
+      class="sc-bxivhb clCpTH"
+      id="test2"
+      label="test 2"
+      name="test2"
+    />
+  </div>
+  <div />
   <button
     class="sc-bwzfXH jjWYyR"
     type="submit"

@@ -1,6 +1,7 @@
 const theme = {
   main: {},
-  inputs: {},
+  input: {},
+  label: {},
   buttons: {},
   containers: {}
 };

@@ -3,6 +3,7 @@ import React from "react";
 import { Simulate } from "react-dom/test-utils";
 import { render } from "@testing-library/react";
 import Form from "./index";
+import { Input } from "../inputs";
 import theme from "../../../style/theme";
 import { ThemeProvider } from "styled-components";
 
@@ -11,10 +12,8 @@ test("Form Component", () => {
   const { getByLabelText, container } = render(
     <ThemeProvider theme={theme}>
       <Form onSubmit={submitAction} buttonValue="Send">
-        <label htmlFor="test1">test 1</label>
-        <input id="test1" name="test1" />
-        <label htmlFor="test2">test 2</label>
-        <input id="test2" name="test2" />
+        <Input label="test 1" name="test1" />
+        <Input label="test 2" name="test2" />
       </Form>
     </ThemeProvider>
   );
