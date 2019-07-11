@@ -12,11 +12,15 @@ exports[`Text input Component 1`] = `
     id="test1"
   />
   <div />
-  <button
-    class="sc-htpNat gglbwD"
-    type="submit"
+  <div
+    class="sc-bwzfXH cusHsC"
   >
-    submit
-  </button>
+    <button
+      class="sc-bxivhb hjsBPE"
+      type="submit"
+    >
+      submit
+    </button>
+  </div>
 </form>
 `;

@@ -24,7 +24,7 @@ const Form = ({
           <span className={type}>{body}</span>
         ))}
       </div>
-      <Button>{buttonValue}</Button>
+      <Button type="submit">{buttonValue}</Button>
     </form>
   );
 };

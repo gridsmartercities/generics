@@ -9,7 +9,7 @@ exports[`Text input Component 1`] = `
     text 1
   </label>
   <input
-    class="sc-bwzfXH iKkDVM"
+    class="sc-bwzfXH QDXfw"
     id="test1"
     label="text 1"
     name="test1"

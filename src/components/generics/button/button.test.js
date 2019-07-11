@@ -20,7 +20,9 @@ test("Regular Button Component", () => {
 test("Link Button Component", () => {
   const { getByLabelText, container } = render(
     <ThemeProvider theme={theme}>
-      <Button href="/hello">Hello</Button>
+      <Button type="link" href="/hello">
+        Hello
+      </Button>
     </ThemeProvider>
   );
 

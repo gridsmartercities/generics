@@ -3,7 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import Label from "../label";
 
-const InputStyle = styled.input`
+const TextareaInput = styled.textarea`
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -14,19 +14,19 @@ const InputStyle = styled.input`
   border-radius: ${({ theme }) => theme.input.borderRadius || "5px"};
 `;
 
-const Input = props => {
+const Textarea = props => {
   const { label, name } = props;
   return (
     <div>
       <Label htmlFor={name}>{label}</Label>
-      <InputStyle {...props} id={name} />
+      <TextareaInput {...props} id={name} />
     </div>
   );
 };
 
-Input.propTypes = {
+Textarea.propTypes = {
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
 };
 
-export default Input;
+export default Textarea;

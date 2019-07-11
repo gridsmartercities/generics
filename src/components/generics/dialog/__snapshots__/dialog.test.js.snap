@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog Component 1`] = `
+<div>
+  <div
+    class="sc-bdVaJa kNiqos"
+  >
+    <div
+      class="sc-bwzfXH gVxKjR"
+    />
+    <section
+      class="sc-htpNat RGXSK"
+      data-active="true"
+      id="exercises-open"
+    >
+      Hello
+    </section>
+  </div>
+</div>
+`;
