@@ -1,6 +1,6 @@
 import React from "react";
 import ProType from "prop-types";
-import { useTransition, animated, useSpring } from "react-spring";
+import { useTransition, animated } from "react-spring";
 import styled from "styled-components";
 
 const Container = styled(animated.div)`
