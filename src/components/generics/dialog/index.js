@@ -34,9 +34,9 @@ const Dialog = styled(animated.section)`
 const DialogComponent = baseprops => {
   const transitions = useTransition(baseprops.active, null, {
     config: { duration: 200 },
-    from: { opacity: 0, marginBottom: -70 },
-    enter: { opacity: 1, marginBottom: 0 },
-    leave: { opacity: 0, marginBottom: -70 }
+    from: { opacity: 0, transform: "translate3d(0,70px,0)" },
+    enter: { opacity: 1, transform: "translate3d(0,0,0)" },
+    leave: { opacity: 0, transform: "translate3d(0,70px,0)" }
   });
   return transitions.map(({ item, key, props }) =>
     item ? (
