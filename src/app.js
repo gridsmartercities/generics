@@ -6,7 +6,7 @@ import { ThemeProvider } from "styled-components";
 import theme from "./style/theme";
 import Button from "./components/generics/button";
 import Dialog from "./components/generics/dialog";
-import TagInput from "./components/generics/inputs/taginput";
+
 const App = () => {
   const [messages, setMessages] = useState([]);
   const [sets, setSets] = useState({});
@@ -25,7 +25,6 @@ const App = () => {
       >
         <Input label="Title" name="title" type="text" />
         <TextArea label="Description" name="test" type="text" />
-        <TagInput />
         <Button
           onClick={e => {
             e.preventDefault();
@@ -41,7 +40,12 @@ const App = () => {
             <Button onClick={() => setDialogOpen(true)}>Add Exercise</Button>
           </div>
         ))}
-        <Dialog active={dialogOpen} closeDialog={() => setDialogOpen(false)}>
+        <Dialog
+          active={dialogOpen}
+          closeDialog={() => {
+            setDialogOpen(false);
+          }}
+        >
           Hello
         </Dialog>
       </Form>

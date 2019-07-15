@@ -1,9 +1,10 @@
 import React from "react";
 import ProType from "prop-types";
-import { useTransition, animated } from "react-spring";
+import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
+import If from "../if";
 
-const Container = styled(animated.div)`
+const Container = styled(motion.div)`
   position: fixed;
   height: 100%;
   width: 100%;
@@ -13,44 +14,78 @@ const Container = styled(animated.div)`
   display: flex;
   justify-content: center;
   align-items: center;
+  .close {
+    position: absolute;
+    diaplay: flex;
+    height: 100%;
+    width: 100%;
+  }
 `;
 
-const Overlay = styled.div`
+const Overlay = styled(motion.div)`
   position: absolute;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.3);
   diaplay: flex;
   height: 100%;
   width: 100%;
   z-index: 1;
+  top: 0;
+  left: 0;
 `;
 
-const Dialog = styled(animated.section)`
-  position: relative;
+const Dialog = styled(motion.div)`
+  position: absolute;
   background: #fff;
   border-radius: 5px;
   z-index: 2;
 `;
 
-const DialogComponent = baseprops => {
-  const transitions = useTransition(baseprops.active, null, {
-    config: { duration: 200 },
-    from: { opacity: 0, transform: "translate3d(0,70px,0)" },
-    enter: { opacity: 1, transform: "translate3d(0,0,0)" },
-    leave: { opacity: 0, transform: "translate3d(0,70px,0)" }
-  });
-  return transitions.map(({ item, key, props }) =>
-    item ? (
-      <Container key={key}>
-        <Overlay onClick={baseprops.closeDialog} />
-        <Dialog
-          id={props.id}
-          data-active={baseprops.active}
-          style={{ ...props, minWidth: "300px", minHeight: "300px" }}
-        >
-          {baseprops.children}
-        </Dialog>
-      </Container>
-    ) : null
+const DialogComponent = ({
+  closeDialog,
+  active,
+  id,
+  children,
+  overlayBase = { opacity: 0 },
+  overlayAnimate = { opacity: 1 },
+  start = { y: "100%" },
+  animate = { y: 0 },
+  end = { y: "100%" },
+  transition = { duration: 0.5 }
+}) => {
+  return (
+    <>
+      <AnimatePresence>
+        {active === true && (
+          <Overlay
+            key="overlay"
+            onClick={closeDialog}
+            initial={overlayBase}
+            animate={overlayAnimate}
+            exit={overlayBase}
+          />
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {active === true && (
+          <Container
+            key="dialog"
+            initial={start}
+            animate={animate}
+            exit={end}
+            transition={transition}
+          >
+            <div className="close" key="overlay" onClick={closeDialog} />
+            <Dialog
+              id={id}
+              data-active={active}
+              style={{ minWidth: "300px", minHeight: "300px" }}
+            >
+              {children}
+            </Dialog>
+          </Container>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
