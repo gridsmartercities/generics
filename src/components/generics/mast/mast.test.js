@@ -1,22 +1,18 @@
 import "jest-dom/extend-expect";
 import React from "react";
 import { render } from "@testing-library/react";
-import Label from "./index";
-import Form from "../form";
+import Mast from "./index";
 import theme from "../../../style/theme";
 import { ThemeProvider } from "styled-components";
 
-test("Text input Component", () => {
+test("Mast Component", () => {
   const { getByLabelText, container } = render(
     <ThemeProvider theme={theme}>
       <Mast onSubmit={() => "yo"}>
-        <Label htmlFor="test1">test 1</Label>
-        <input id="test1" />
-      </Form>
+        <img src="image.jpg" alt="dogs" />
+      </Mast>
     </ThemeProvider>
   );
-
-  const input = getByLabelText("test 1");
 
   expect(container.firstChild).toMatchSnapshot();
 });

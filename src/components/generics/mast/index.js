@@ -1,10 +1,14 @@
 import React from "react";
-import If from "../if";
+import styled from "styled-components";
 
-const Loader = props => (
-  <If case={props.case}>
-    <div>{props.children}</div>
-  </If>
-);
+const Mast = styled.section`
+  position: fixed;
+  background: ${props => props.theme.mast.background || "#fff"};
+  display: fixed;
+  justify-content: center;
+  align-items: center;
+`;
 
-export default Loader;
+const MastComponent = ({ children }) => <Mast>{children}</Mast>;
+
+export default MastComponent;

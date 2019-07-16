@@ -3,6 +3,7 @@ const theme = {
   input: {},
   label: {},
   buttons: {},
+  mast: {},
   containers: {}
 };
 

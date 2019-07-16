@@ -2,7 +2,6 @@ import React from "react";
 import ProType from "prop-types";
 import { motion, AnimatePresence } from "framer-motion";
 import styled from "styled-components";
-import If from "../if";
 
 const Container = styled(motion.div)`
   position: fixed;

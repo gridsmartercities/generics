@@ -9,14 +9,14 @@ import { ThemeProvider } from "styled-components";
 test("Dialog Component", () => {
   const { getByLabelText, container } = render(
     <ThemeProvider theme={theme}>
-      <div>
+      <>
         <Dialog id="exercises-open" active={true}>
           Hello
         </Dialog>
         <Dialog id="exercises-closed" active={false}>
           Hello
         </Dialog>
-      </div>
+      </>
     </ThemeProvider>
   );
   const dialogOpen = document.querySelector("section#exercises-open");

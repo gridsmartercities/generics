@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mast Component 1`] = `
+<section
+  class="sc-bdVaJa cUTrPo"
+>
+  <img
+    alt="dogs"
+    src="image.jpg"
+  />
+</section>
+`;
