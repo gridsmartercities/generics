@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ProType from "prop-types";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useMotionValue,
+  useTransform
+} from "framer-motion";
 import styled from "styled-components";
 
 const Container = styled(motion.div)`
@@ -40,7 +45,7 @@ const Dialog = styled(motion.div)`
 `;
 
 const DialogComponent = ({
-  closeDialog,
+  toggleDialog,
   active,
   id,
   children,
@@ -51,13 +56,15 @@ const DialogComponent = ({
   end = { y: "100%" },
   transition = { duration: 0.5 }
 }) => {
+  const x = useMotionValue(0);
+  const opacity = useTransform(x, [-200, 0, 200], [0, 1, 0]);
   return (
     <>
       <AnimatePresence>
         {active === true && (
           <Overlay
             key="overlay"
-            onClick={closeDialog}
+            onClick={toggleDialog}
             initial={overlayBase}
             animate={overlayAnimate}
             exit={overlayBase}
@@ -73,11 +80,16 @@ const DialogComponent = ({
             exit={end}
             transition={transition}
           >
-            <div className="close" key="overlay" onClick={closeDialog} />
+            <div className="close" key="overlay" onClick={toggleDialog} />
             <Dialog
               id={id}
+              drag="y"
+              dragConstraints={{ top: 0, bottom: 100 }}
               data-active={active}
-              style={{ minWidth: "300px", minHeight: "300px" }}
+              onDragEnd={(event, info) => {
+                Math.abs(info.offset.x) > 2 ? toggleDialog() : null;
+              }}
+              style={{ x, opacity, minWidth: "300px", minHeight: "300px" }}
             >
               {children}
             </Dialog>

@@ -42,8 +42,8 @@ const App = () => {
         ))}
         <Dialog
           active={dialogOpen}
-          closeDialog={() => {
-            setDialogOpen(false);
+          toggleDialog={() => {
+            setDialogOpen(!dialogOpen);
           }}
         >
           Hello
