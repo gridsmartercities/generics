@@ -86,8 +86,8 @@ const DialogComponent = ({
               drag="y"
               dragConstraints={{ top: 0, bottom: 100 }}
               data-active={active}
-              onDragEnd={(event, info) => {
-                Math.abs(info.offset.x) > 2 ? toggleDialog() : null;
+              onDragEnd={(_, info) => {
+                Math.abs(info.offset.x) > 2 ? toggleDialog() : false;
               }}
               style={{ x, opacity, minWidth: "300px", minHeight: "300px" }}
             >
